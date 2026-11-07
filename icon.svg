@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Vision bridge">
+  <defs>
+    <linearGradient id="vb-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3B6FE0"/>
+      <stop offset="1" stop-color="#7B4BE0"/>
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="url(#vb-bg)"/>
+  <path d="M9 32c5.2-8.4 13.2-12.6 23-12.6S49.8 23.6 55 32c-5.2 8.4-13.2 12.6-23 12.6S14.2 40.4 9 32z"
+        fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linejoin="round"/>
+  <circle cx="32" cy="32" r="7.4" fill="#FFFFFF"/>
+  <circle cx="29.6" cy="29.6" r="2.4" fill="#3B6FE0"/>
+  <path d="M32 13.4v6.2M32 44.4v6.2" stroke="#FFFFFF" stroke-width="2.6" stroke-linecap="round" opacity="0.55"/>
+</svg>

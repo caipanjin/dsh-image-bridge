@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Vision bridge",
+    "description": "Reads images through a dedicated vision subagent whose model is configured independently of the main agent's model."
+  }
+}

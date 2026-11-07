@@ -1,0 +1,18 @@
+# dsh-image-bridge bundle patch: inserts the image-recognition tool into the
+# profile's layer stack. The row mounts one Host plugin; it needs the profile's
+# existing subagent service and an in-process spawn provider (`spawn`), both of
+# which the dsh base bundle already mounts.
+- insert:
+    - id: vision-bridge
+      name: 'dsh-image-bridge'
+      config:
+        provider: magpie
+        model: qwenwork-community/qwork-advanced
+        subagentProvider: spawn
+        subagentLabel: vision
+        toolName: recognize_image
+        maxDepth: 1
+        timeoutMs: 180000
+        maxTokens: 4096
+        systemPrompt: ''
+        guideline: true
