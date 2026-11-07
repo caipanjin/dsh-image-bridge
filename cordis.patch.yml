@@ -6,8 +6,11 @@
     - id: vision-bridge
       name: 'dsh-image-bridge'
       config:
-        provider: magpie
-        model: qwenwork-community/qwork-advanced
+        # provider / model are REQUIRED and intentionally left empty.
+        # Fill them with a route in your profile that accepts image input,
+        # e.g. provider: openai, model: gpt-4o-mini
+        provider: ''
+        model: ''
         subagentProvider: spawn
         subagentLabel: vision
         toolName: recognize_image

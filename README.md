@@ -33,7 +33,7 @@ Set these in the profile's `cordis.patch.yml` entry `vision-bridge`, or edit the
 
 | Field | Default | Meaning |
 |---|---|---|
-| `provider` | (required) | Child model provider id, e.g. `openai`, `deepseek`, `magpie`. |
+| `provider` | (required) | Child model provider id, e.g. `openai`, `anthropic`, `deepseek`. |
 | `model` | (required) | Child vision model id on that provider, e.g. `gpt-4o-mini`, `qwen-vl-max`. |
 | `reasoningEffort`* | `''` | Child-route reasoning effort id; empty uses the model default. |
 | `maxTokens`* | `4096` | Output cap per child call. |
@@ -45,9 +45,10 @@ Set these in the profile's `cordis.patch.yml` entry `vision-bridge`, or edit the
 | `systemPrompt`* | `''` | Replace the child's built-in analyst instruction. |
 | `guideline`* | `true` | Add the "call this tool for images" prompt line. |
 
-The bundled example patch points `provider`/`model` at a Magpie route
-(`magpie` / `qwenwork-community/qwork-advanced`). Change them to whichever
-route in your profile accepts image input.
+The bundled `cordis.patch.yml` leaves `provider`/`model` **empty on purpose** —
+you must fill them in with a route in your profile that accepts image input.
+The plugin refuses to run until both are set, and reports a clear error if a
+call is attempted while they are still empty.
 
 ## Tool arguments
 
