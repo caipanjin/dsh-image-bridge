@@ -70,7 +70,7 @@ or through the DSH plugin hub / plugin manager by package name. It ships
 plain JavaScript (`lib/index.js`) and needs no build step.
 
 Runtime packages (`@deepseek-ai/cordis`, `@deepseek-ai/dsh-tools`,
-`@deepseek-ai/dsh-subagent`, `@deepseek-ai/schemastery`) are declared as
+`@deepseek-ai/dsh-subagent`) are declared as
 **peer dependencies** and supplied by the Harness installation at load time —
 the profile's module resolver routes these bare specifiers to the packages
 bundled inside the app, so this package ships with no `node_modules/` of its

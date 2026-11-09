@@ -1,6 +1,6 @@
 {
   "name": "dsh-image-bridge",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Read images through a dedicated vision subagent whose model is configured independently of the main agent. · 通过独立的识图子智能体识别图片，子智能体模型可单独配置。",
   "type": "module",
   "engines": {
@@ -9,6 +9,14 @@
   },
   "main": "lib/index.js",
   "icon": "icon.svg",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/caipanjin/dsh-image-bridge.git"
+  },
+  "homepage": "https://github.com/caipanjin/dsh-image-bridge#readme",
+  "bugs": {
+    "url": "https://github.com/caipanjin/dsh-image-bridge/issues"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -53,8 +61,7 @@
   "peerDependencies": {
     "@deepseek-ai/cordis": "^4.0.2",
     "@deepseek-ai/dsh-subagent": ">=0.2.0 <0.3.0-0",
-    "@deepseek-ai/dsh-tools": ">=0.2.0 <0.3.0-0",
-    "@deepseek-ai/schemastery": "^3.18.0"
+    "@deepseek-ai/dsh-tools": ">=0.2.0 <0.3.0-0"
   },
   "peerDependenciesMeta": {
     "@deepseek-ai/cordis": {
@@ -64,9 +71,6 @@
       "optional": false
     },
     "@deepseek-ai/dsh-tools": {
-      "optional": false
-    },
-    "@deepseek-ai/schemastery": {
       "optional": false
     }
   },
