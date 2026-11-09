@@ -48,7 +48,10 @@ Set these in the profile's `cordis.patch.yml` entry `vision-bridge`, or edit the
 The bundled `cordis.patch.yml` leaves `provider`/`model` **empty on purpose** —
 you must fill them in with a route in your profile that accepts image input.
 The plugin refuses to run until both are set, and reports a clear error if a
-call is attempted while they are still empty.
+call is attempted while they are still empty. It also checks the configured
+model's declared `inputModalities` before starting the child and fails early
+with a clear message if that route does not accept images, instead of silently
+sending placeholder text to a text-only model.
 
 ## Tool arguments
 
@@ -76,3 +79,12 @@ the profile's module resolver routes these bare specifiers to the packages
 bundled inside the app, so this package ships with no `node_modules/` of its
 own and stays tiny. Only the Harness needs to provide them; install nothing
 extra.
+
+## Development
+
+The pure helpers (`lib/pure.js`) have no external imports, so the unit tests run
+under bare Node without the Harness runtime:
+
+```
+npm test        # node --test
+```
