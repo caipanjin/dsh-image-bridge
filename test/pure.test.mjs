@@ -10,6 +10,7 @@ import { test } from 'node:test';
 
 import {
   buildPrompt,
+  describeLabel,
   imagesOf,
   imagesOfEvent,
   live,
@@ -156,4 +157,33 @@ test('buildPrompt: single image unlabeled; multiple labeled; question always las
   const none = buildPrompt([], 'INST', 'Q?');
   assert.equal(none.length, 1);
   assert.equal(none[0].type, 'text');
+});
+
+test('describeLabel: appends a one-line question summary', () => {
+  assert.equal(describeLabel('vision', 'What is written?'), 'vision: What is written?');
+  // Newlines and runs of spaces collapse, because the panel renders one line.
+  assert.equal(describeLabel('vision', '  a\n\n b\tc  '), 'vision: a b c');
+});
+
+test('describeLabel: falls back to the bare prefix', () => {
+  assert.equal(describeLabel('vision', ''), 'vision');
+  assert.equal(describeLabel('vision', '   \n\t '), 'vision');
+  assert.equal(describeLabel('', 'Q?'), 'vision: Q?');
+  assert.equal(describeLabel(undefined, 'Q?'), 'vision: Q?');
+  // A zero or negative budget keeps the bare label.
+  assert.equal(describeLabel('vision', 'Q?', 0), 'vision');
+  assert.equal(describeLabel('vision', 'Q?', -5), 'vision');
+});
+
+test('describeLabel: truncates long questions within the budget', () => {
+  const long = 'x'.repeat(200);
+  const label = describeLabel('vision', long, 40);
+  assert.ok(label.startsWith('vision: '));
+  const summary = label.slice('vision: '.length);
+  assert.equal(summary.length, 40);
+  assert.ok(summary.endsWith('…'));
+  // Exactly at the budget is not truncated.
+  assert.equal(describeLabel('vision', 'y'.repeat(40), 40), `vision: ${'y'.repeat(40)}`);
+  // One over the budget truncates and keeps the ellipsis inside the budget.
+  assert.equal(describeLabel('vision', 'z'.repeat(41), 40), `vision: ${'z'.repeat(39)}…`);
 });

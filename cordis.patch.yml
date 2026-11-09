@@ -13,6 +13,7 @@
         model: ''
         subagentProvider: spawn
         subagentLabel: vision
+        labelQuestionChars: 40
         toolName: recognize_image
         maxDepth: 1
         timeoutMs: 180000

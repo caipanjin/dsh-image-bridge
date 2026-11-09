@@ -38,7 +38,8 @@ Set these in the profile's `cordis.patch.yml` entry `vision-bridge`, or edit the
 | `reasoningEffort`* | `''` | Child-route reasoning effort id; empty uses the model default. |
 | `maxTokens`* | `4096` | Output cap per child call. |
 | `subagentProvider` | `spawn` | Backend on `ctx.subagents`; `spawn` ships with dsh base. |
-| `subagentLabel` | `vision` | Label shown for each vision child. |
+| `subagentLabel` | `vision` | Label prefix for each vision child; the question summary is appended. |
+| `labelQuestionChars` | `40` | Characters of the question appended to the child label so panel rows stay distinguishable; `0` keeps the bare label. |
 | `toolName` | `recognize_image` | Model-facing tool name. |
 | `maxDepth` | `1` | Absolute delegation-depth cap; a child of the main agent is depth 1, so `1` admits the vision child but denies it grandchildren. |
 | `timeoutMs` | `180000` | Per-call timeout. |

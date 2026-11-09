@@ -1,6 +1,6 @@
 {
   "name": "dsh-image-bridge",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Read images through a dedicated vision subagent whose model is configured independently of the main agent. · 通过独立的识图子智能体识别图片，子智能体模型可单独配置。",
   "type": "module",
   "engines": {
